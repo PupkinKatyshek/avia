@@ -1,0 +1,58 @@
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleFilter } from "../../store/filterSlice";
+import CheckboxStyles from "../../utils/checkBoxStyles";
+import classes from "./Filter.module.scss";
+
+const Filter = () => {
+  const filter = useSelector((state) => state.filter);
+  const dispatch = useDispatch();
+
+  const handleCheckboxChange = (option) => {
+    dispatch(toggleFilter({ option }));
+  };
+
+  return (
+    <aside className={classes.Filter}>
+      <h3 className={classes["Filter__title"]}>Количество пересадок</h3>
+      <div className={classes["Filter__checkbox"]}>
+        <CheckboxStyles
+          checked={filter.all}
+          onChange={() => handleCheckboxChange("all")}
+        >
+          Все
+        </CheckboxStyles>
+      </div>
+      <CheckboxStyles
+        className={classes["Filter__checkbox"]}
+        checked={filter.noStops}
+        onChange={() => handleCheckboxChange("noStops")}
+      >
+        Без пересадок
+      </CheckboxStyles>
+      <CheckboxStyles
+        className={classes["Filter__checkbox"]}
+        checked={filter.oneStop}
+        onChange={() => handleCheckboxChange("oneStop")}
+      >
+        1 пересадка
+      </CheckboxStyles>
+      <CheckboxStyles
+        className={classes["Filter__checkbox"]}
+        checked={filter.twoStops}
+        onChange={() => handleCheckboxChange("twoStops")}
+      >
+        2 пересадки
+      </CheckboxStyles>
+      <CheckboxStyles
+        className={classes["Filter__checkbox"]}
+        checked={filter.threeStops}
+        onChange={() => handleCheckboxChange("threeStops")}
+      >
+        3 пересадки
+      </CheckboxStyles>
+    </aside>
+  );
+};
+
+export default Filter;
