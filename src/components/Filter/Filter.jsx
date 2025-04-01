@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleFilter } from "../../store/filterSlice";
-import CheckboxStyles from "../../utils/checkBoxStyles";
+import CheckboxStyles from "../../utils/CheckboxStyles";
 import classes from "./Filter.module.scss";
 
 const Filter = () => {
