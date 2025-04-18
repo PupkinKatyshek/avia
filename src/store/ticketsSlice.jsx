@@ -30,5 +30,7 @@ const ticketsSlice = createSlice({
   },
 });
 
+export const selectIsLoading = (state) => state.tickets.status === "loading";
+
 export const { addTickets } = ticketsSlice.actions;
 export default ticketsSlice.reducer;
