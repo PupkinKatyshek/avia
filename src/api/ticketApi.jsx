@@ -29,7 +29,6 @@ export const TicketFetcher = createAsyncThunk(
         notificationError(
           `Произошла непредвиденная ошибка при получении: ${error}`
         );
-        return;
       }
     }
     console.log("Поиск тикетов завершен.");
